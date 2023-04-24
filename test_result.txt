@@ -1,0 +1,492 @@
+============================= test session starts ==============================
+platform linux -- Python 3.10.10, pytest-7.3.1, pluggy-1.0.0
+rootdir: /home/seuronao/Documents/primeiros-n-primos-04-24-2023-04-51-16/cauafreitas7
+collected 8 items
+
+test_main.py FFFFFFFF                                                    [100%]
+
+=================================== FAILURES ===================================
+_______________________ test_primes[1-expected_output0] ________________________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7f4c6c74d8d0>
+test_input = '1', expected_output = ['2']
+
+    @pytest.mark.parametrize(
+        "test_input, expected_output",
+        [
+            ("1", ["2"]),
+            ("2", ["2", "3"]),
+            ("3", ["2", "3", "5"]),
+            ("4", ["2", "3", "5", "7"]),
+            ("5", ["2", "3", "5", "7", "11"]),
+            ("6", ["2", "3", "5", "7", "11", "13"]),
+            ("20", ["2", "3", "5", "7", "11", "13", "17", "19", "23", "29",
+             "31", "37", "41", "43", "47", "53", "59", "61", "67", "71"])
+        ],
+    )
+    def test_primes(monkeypatch: MonkeyPatch, test_input: str, expected_output: list[str]):
+        mocked_input = lambda prompt="": test_input
+    
+        mocked_stdout = io.StringIO()
+    
+        with monkeypatch.context() as m:
+            m.setattr(builtins, "input", mocked_input)
+            m.setattr(sys, "stdout", mocked_stdout)
+    
+            sys.modules.pop("main", None)
+>           importlib.import_module(name="main", package="files")
+
+test_main.py:33: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+<frozen importlib._bootstrap>:1050: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1027: in _find_and_load
+    ???
+<frozen importlib._bootstrap>:1006: in _find_and_load_unlocked
+    ???
+<frozen importlib._bootstrap>:688: in _load_unlocked
+    ???
+<frozen importlib._bootstrap_external>:879: in exec_module
+    ???
+<frozen importlib._bootstrap_external>:1017: in get_code
+    ???
+<frozen importlib._bootstrap_external>:947: in source_to_code
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+f = <built-in function compile>
+args = (b'n = int(input("Digite um n\xc3\xbamero:""))\nprint("2")\nprimo = 1\nprox_primo = 3\nwhile primo < n:\n   x = 3\n   ...n   prox_primo += 2\n', '/home/seuronao/Documents/primeiros-n-primos-04-24-2023-04-51-16/cauafreitas7/main.py', 'exec')
+kwds = {'dont_inherit': True, 'optimize': -1}
+
+>   ???
+E     File "/home/seuronao/Documents/primeiros-n-primos-04-24-2023-04-51-16/cauafreitas7/main.py", line 1
+E       n = int(input("Digite um número:""))
+E                                        ^
+E   SyntaxError: unterminated string literal (detected at line 1)
+
+<frozen importlib._bootstrap>:241: SyntaxError
+_______________________ test_primes[2-expected_output1] ________________________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7f4c6c7d6740>
+test_input = '2', expected_output = ['2', '3']
+
+    @pytest.mark.parametrize(
+        "test_input, expected_output",
+        [
+            ("1", ["2"]),
+            ("2", ["2", "3"]),
+            ("3", ["2", "3", "5"]),
+            ("4", ["2", "3", "5", "7"]),
+            ("5", ["2", "3", "5", "7", "11"]),
+            ("6", ["2", "3", "5", "7", "11", "13"]),
+            ("20", ["2", "3", "5", "7", "11", "13", "17", "19", "23", "29",
+             "31", "37", "41", "43", "47", "53", "59", "61", "67", "71"])
+        ],
+    )
+    def test_primes(monkeypatch: MonkeyPatch, test_input: str, expected_output: list[str]):
+        mocked_input = lambda prompt="": test_input
+    
+        mocked_stdout = io.StringIO()
+    
+        with monkeypatch.context() as m:
+            m.setattr(builtins, "input", mocked_input)
+            m.setattr(sys, "stdout", mocked_stdout)
+    
+            sys.modules.pop("main", None)
+>           importlib.import_module(name="main", package="files")
+
+test_main.py:33: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+<frozen importlib._bootstrap>:1050: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1027: in _find_and_load
+    ???
+<frozen importlib._bootstrap>:1006: in _find_and_load_unlocked
+    ???
+<frozen importlib._bootstrap>:688: in _load_unlocked
+    ???
+<frozen importlib._bootstrap_external>:879: in exec_module
+    ???
+<frozen importlib._bootstrap_external>:1017: in get_code
+    ???
+<frozen importlib._bootstrap_external>:947: in source_to_code
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+f = <built-in function compile>
+args = (b'n = int(input("Digite um n\xc3\xbamero:""))\nprint("2")\nprimo = 1\nprox_primo = 3\nwhile primo < n:\n   x = 3\n   ...n   prox_primo += 2\n', '/home/seuronao/Documents/primeiros-n-primos-04-24-2023-04-51-16/cauafreitas7/main.py', 'exec')
+kwds = {'dont_inherit': True, 'optimize': -1}
+
+>   ???
+E     File "/home/seuronao/Documents/primeiros-n-primos-04-24-2023-04-51-16/cauafreitas7/main.py", line 1
+E       n = int(input("Digite um número:""))
+E                                        ^
+E   SyntaxError: unterminated string literal (detected at line 1)
+
+<frozen importlib._bootstrap>:241: SyntaxError
+_______________________ test_primes[3-expected_output2] ________________________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7f4c6c8f0f10>
+test_input = '3', expected_output = ['2', '3', '5']
+
+    @pytest.mark.parametrize(
+        "test_input, expected_output",
+        [
+            ("1", ["2"]),
+            ("2", ["2", "3"]),
+            ("3", ["2", "3", "5"]),
+            ("4", ["2", "3", "5", "7"]),
+            ("5", ["2", "3", "5", "7", "11"]),
+            ("6", ["2", "3", "5", "7", "11", "13"]),
+            ("20", ["2", "3", "5", "7", "11", "13", "17", "19", "23", "29",
+             "31", "37", "41", "43", "47", "53", "59", "61", "67", "71"])
+        ],
+    )
+    def test_primes(monkeypatch: MonkeyPatch, test_input: str, expected_output: list[str]):
+        mocked_input = lambda prompt="": test_input
+    
+        mocked_stdout = io.StringIO()
+    
+        with monkeypatch.context() as m:
+            m.setattr(builtins, "input", mocked_input)
+            m.setattr(sys, "stdout", mocked_stdout)
+    
+            sys.modules.pop("main", None)
+>           importlib.import_module(name="main", package="files")
+
+test_main.py:33: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+<frozen importlib._bootstrap>:1050: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1027: in _find_and_load
+    ???
+<frozen importlib._bootstrap>:1006: in _find_and_load_unlocked
+    ???
+<frozen importlib._bootstrap>:688: in _load_unlocked
+    ???
+<frozen importlib._bootstrap_external>:879: in exec_module
+    ???
+<frozen importlib._bootstrap_external>:1017: in get_code
+    ???
+<frozen importlib._bootstrap_external>:947: in source_to_code
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+f = <built-in function compile>
+args = (b'n = int(input("Digite um n\xc3\xbamero:""))\nprint("2")\nprimo = 1\nprox_primo = 3\nwhile primo < n:\n   x = 3\n   ...n   prox_primo += 2\n', '/home/seuronao/Documents/primeiros-n-primos-04-24-2023-04-51-16/cauafreitas7/main.py', 'exec')
+kwds = {'dont_inherit': True, 'optimize': -1}
+
+>   ???
+E     File "/home/seuronao/Documents/primeiros-n-primos-04-24-2023-04-51-16/cauafreitas7/main.py", line 1
+E       n = int(input("Digite um número:""))
+E                                        ^
+E   SyntaxError: unterminated string literal (detected at line 1)
+
+<frozen importlib._bootstrap>:241: SyntaxError
+_______________________ test_primes[4-expected_output3] ________________________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7f4c6c76e290>
+test_input = '4', expected_output = ['2', '3', '5', '7']
+
+    @pytest.mark.parametrize(
+        "test_input, expected_output",
+        [
+            ("1", ["2"]),
+            ("2", ["2", "3"]),
+            ("3", ["2", "3", "5"]),
+            ("4", ["2", "3", "5", "7"]),
+            ("5", ["2", "3", "5", "7", "11"]),
+            ("6", ["2", "3", "5", "7", "11", "13"]),
+            ("20", ["2", "3", "5", "7", "11", "13", "17", "19", "23", "29",
+             "31", "37", "41", "43", "47", "53", "59", "61", "67", "71"])
+        ],
+    )
+    def test_primes(monkeypatch: MonkeyPatch, test_input: str, expected_output: list[str]):
+        mocked_input = lambda prompt="": test_input
+    
+        mocked_stdout = io.StringIO()
+    
+        with monkeypatch.context() as m:
+            m.setattr(builtins, "input", mocked_input)
+            m.setattr(sys, "stdout", mocked_stdout)
+    
+            sys.modules.pop("main", None)
+>           importlib.import_module(name="main", package="files")
+
+test_main.py:33: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+<frozen importlib._bootstrap>:1050: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1027: in _find_and_load
+    ???
+<frozen importlib._bootstrap>:1006: in _find_and_load_unlocked
+    ???
+<frozen importlib._bootstrap>:688: in _load_unlocked
+    ???
+<frozen importlib._bootstrap_external>:879: in exec_module
+    ???
+<frozen importlib._bootstrap_external>:1017: in get_code
+    ???
+<frozen importlib._bootstrap_external>:947: in source_to_code
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+f = <built-in function compile>
+args = (b'n = int(input("Digite um n\xc3\xbamero:""))\nprint("2")\nprimo = 1\nprox_primo = 3\nwhile primo < n:\n   x = 3\n   ...n   prox_primo += 2\n', '/home/seuronao/Documents/primeiros-n-primos-04-24-2023-04-51-16/cauafreitas7/main.py', 'exec')
+kwds = {'dont_inherit': True, 'optimize': -1}
+
+>   ???
+E     File "/home/seuronao/Documents/primeiros-n-primos-04-24-2023-04-51-16/cauafreitas7/main.py", line 1
+E       n = int(input("Digite um número:""))
+E                                        ^
+E   SyntaxError: unterminated string literal (detected at line 1)
+
+<frozen importlib._bootstrap>:241: SyntaxError
+_______________________ test_primes[5-expected_output4] ________________________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7f4c6c8f0370>
+test_input = '5', expected_output = ['2', '3', '5', '7', '11']
+
+    @pytest.mark.parametrize(
+        "test_input, expected_output",
+        [
+            ("1", ["2"]),
+            ("2", ["2", "3"]),
+            ("3", ["2", "3", "5"]),
+            ("4", ["2", "3", "5", "7"]),
+            ("5", ["2", "3", "5", "7", "11"]),
+            ("6", ["2", "3", "5", "7", "11", "13"]),
+            ("20", ["2", "3", "5", "7", "11", "13", "17", "19", "23", "29",
+             "31", "37", "41", "43", "47", "53", "59", "61", "67", "71"])
+        ],
+    )
+    def test_primes(monkeypatch: MonkeyPatch, test_input: str, expected_output: list[str]):
+        mocked_input = lambda prompt="": test_input
+    
+        mocked_stdout = io.StringIO()
+    
+        with monkeypatch.context() as m:
+            m.setattr(builtins, "input", mocked_input)
+            m.setattr(sys, "stdout", mocked_stdout)
+    
+            sys.modules.pop("main", None)
+>           importlib.import_module(name="main", package="files")
+
+test_main.py:33: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+<frozen importlib._bootstrap>:1050: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1027: in _find_and_load
+    ???
+<frozen importlib._bootstrap>:1006: in _find_and_load_unlocked
+    ???
+<frozen importlib._bootstrap>:688: in _load_unlocked
+    ???
+<frozen importlib._bootstrap_external>:879: in exec_module
+    ???
+<frozen importlib._bootstrap_external>:1017: in get_code
+    ???
+<frozen importlib._bootstrap_external>:947: in source_to_code
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+f = <built-in function compile>
+args = (b'n = int(input("Digite um n\xc3\xbamero:""))\nprint("2")\nprimo = 1\nprox_primo = 3\nwhile primo < n:\n   x = 3\n   ...n   prox_primo += 2\n', '/home/seuronao/Documents/primeiros-n-primos-04-24-2023-04-51-16/cauafreitas7/main.py', 'exec')
+kwds = {'dont_inherit': True, 'optimize': -1}
+
+>   ???
+E     File "/home/seuronao/Documents/primeiros-n-primos-04-24-2023-04-51-16/cauafreitas7/main.py", line 1
+E       n = int(input("Digite um número:""))
+E                                        ^
+E   SyntaxError: unterminated string literal (detected at line 1)
+
+<frozen importlib._bootstrap>:241: SyntaxError
+_______________________ test_primes[6-expected_output5] ________________________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7f4c6c7d5000>
+test_input = '6', expected_output = ['2', '3', '5', '7', '11', '13']
+
+    @pytest.mark.parametrize(
+        "test_input, expected_output",
+        [
+            ("1", ["2"]),
+            ("2", ["2", "3"]),
+            ("3", ["2", "3", "5"]),
+            ("4", ["2", "3", "5", "7"]),
+            ("5", ["2", "3", "5", "7", "11"]),
+            ("6", ["2", "3", "5", "7", "11", "13"]),
+            ("20", ["2", "3", "5", "7", "11", "13", "17", "19", "23", "29",
+             "31", "37", "41", "43", "47", "53", "59", "61", "67", "71"])
+        ],
+    )
+    def test_primes(monkeypatch: MonkeyPatch, test_input: str, expected_output: list[str]):
+        mocked_input = lambda prompt="": test_input
+    
+        mocked_stdout = io.StringIO()
+    
+        with monkeypatch.context() as m:
+            m.setattr(builtins, "input", mocked_input)
+            m.setattr(sys, "stdout", mocked_stdout)
+    
+            sys.modules.pop("main", None)
+>           importlib.import_module(name="main", package="files")
+
+test_main.py:33: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+<frozen importlib._bootstrap>:1050: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1027: in _find_and_load
+    ???
+<frozen importlib._bootstrap>:1006: in _find_and_load_unlocked
+    ???
+<frozen importlib._bootstrap>:688: in _load_unlocked
+    ???
+<frozen importlib._bootstrap_external>:879: in exec_module
+    ???
+<frozen importlib._bootstrap_external>:1017: in get_code
+    ???
+<frozen importlib._bootstrap_external>:947: in source_to_code
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+f = <built-in function compile>
+args = (b'n = int(input("Digite um n\xc3\xbamero:""))\nprint("2")\nprimo = 1\nprox_primo = 3\nwhile primo < n:\n   x = 3\n   ...n   prox_primo += 2\n', '/home/seuronao/Documents/primeiros-n-primos-04-24-2023-04-51-16/cauafreitas7/main.py', 'exec')
+kwds = {'dont_inherit': True, 'optimize': -1}
+
+>   ???
+E     File "/home/seuronao/Documents/primeiros-n-primos-04-24-2023-04-51-16/cauafreitas7/main.py", line 1
+E       n = int(input("Digite um número:""))
+E                                        ^
+E   SyntaxError: unterminated string literal (detected at line 1)
+
+<frozen importlib._bootstrap>:241: SyntaxError
+_______________________ test_primes[20-expected_output6] _______________________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7f4c6c7e2e90>
+test_input = '20', expected_output = ['2', '3', '5', '7', '11', '13', ...]
+
+    @pytest.mark.parametrize(
+        "test_input, expected_output",
+        [
+            ("1", ["2"]),
+            ("2", ["2", "3"]),
+            ("3", ["2", "3", "5"]),
+            ("4", ["2", "3", "5", "7"]),
+            ("5", ["2", "3", "5", "7", "11"]),
+            ("6", ["2", "3", "5", "7", "11", "13"]),
+            ("20", ["2", "3", "5", "7", "11", "13", "17", "19", "23", "29",
+             "31", "37", "41", "43", "47", "53", "59", "61", "67", "71"])
+        ],
+    )
+    def test_primes(monkeypatch: MonkeyPatch, test_input: str, expected_output: list[str]):
+        mocked_input = lambda prompt="": test_input
+    
+        mocked_stdout = io.StringIO()
+    
+        with monkeypatch.context() as m:
+            m.setattr(builtins, "input", mocked_input)
+            m.setattr(sys, "stdout", mocked_stdout)
+    
+            sys.modules.pop("main", None)
+>           importlib.import_module(name="main", package="files")
+
+test_main.py:33: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+<frozen importlib._bootstrap>:1050: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1027: in _find_and_load
+    ???
+<frozen importlib._bootstrap>:1006: in _find_and_load_unlocked
+    ???
+<frozen importlib._bootstrap>:688: in _load_unlocked
+    ???
+<frozen importlib._bootstrap_external>:879: in exec_module
+    ???
+<frozen importlib._bootstrap_external>:1017: in get_code
+    ???
+<frozen importlib._bootstrap_external>:947: in source_to_code
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+f = <built-in function compile>
+args = (b'n = int(input("Digite um n\xc3\xbamero:""))\nprint("2")\nprimo = 1\nprox_primo = 3\nwhile primo < n:\n   x = 3\n   ...n   prox_primo += 2\n', '/home/seuronao/Documents/primeiros-n-primos-04-24-2023-04-51-16/cauafreitas7/main.py', 'exec')
+kwds = {'dont_inherit': True, 'optimize': -1}
+
+>   ???
+E     File "/home/seuronao/Documents/primeiros-n-primos-04-24-2023-04-51-16/cauafreitas7/main.py", line 1
+E       n = int(input("Digite um número:""))
+E                                        ^
+E   SyntaxError: unterminated string literal (detected at line 1)
+
+<frozen importlib._bootstrap>:241: SyntaxError
+___________________________________ test_one ___________________________________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7f4c6c8f0a60>
+
+    def test_one(monkeypatch: MonkeyPatch):
+        mocked_input = lambda prompt="": "2"
+    
+        mocked_stdout = io.StringIO()
+    
+        with monkeypatch.context() as m:
+            m.setattr(builtins, "input", mocked_input)
+            m.setattr(sys, "stdout", mocked_stdout)
+    
+            sys.modules.pop("main", None)
+>           importlib.import_module(name="main", package="files")
+
+test_main.py:49: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+<frozen importlib._bootstrap>:1050: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1027: in _find_and_load
+    ???
+<frozen importlib._bootstrap>:1006: in _find_and_load_unlocked
+    ???
+<frozen importlib._bootstrap>:688: in _load_unlocked
+    ???
+<frozen importlib._bootstrap_external>:879: in exec_module
+    ???
+<frozen importlib._bootstrap_external>:1017: in get_code
+    ???
+<frozen importlib._bootstrap_external>:947: in source_to_code
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+f = <built-in function compile>
+args = (b'n = int(input("Digite um n\xc3\xbamero:""))\nprint("2")\nprimo = 1\nprox_primo = 3\nwhile primo < n:\n   x = 3\n   ...n   prox_primo += 2\n', '/home/seuronao/Documents/primeiros-n-primos-04-24-2023-04-51-16/cauafreitas7/main.py', 'exec')
+kwds = {'dont_inherit': True, 'optimize': -1}
+
+>   ???
+E     File "/home/seuronao/Documents/primeiros-n-primos-04-24-2023-04-51-16/cauafreitas7/main.py", line 1
+E       n = int(input("Digite um número:""))
+E                                        ^
+E   SyntaxError: unterminated string literal (detected at line 1)
+
+<frozen importlib._bootstrap>:241: SyntaxError
+=========================== short test summary info ============================
+FAILED test_main.py::test_primes[1-expected_output0] -   File "/home/seuronao...
+FAILED test_main.py::test_primes[2-expected_output1] -   File "/home/seuronao...
+FAILED test_main.py::test_primes[3-expected_output2] -   File "/home/seuronao...
+FAILED test_main.py::test_primes[4-expected_output3] -   File "/home/seuronao...
+FAILED test_main.py::test_primes[5-expected_output4] -   File "/home/seuronao...
+FAILED test_main.py::test_primes[6-expected_output5] -   File "/home/seuronao...
+FAILED test_main.py::test_primes[20-expected_output6] -   File "/home/seurona...
+FAILED test_main.py::test_one -   File "/home/seuronao/Documents/primeiros-n-...
+============================== 8 failed in 0.13s ===============================

@@ -1,14 +1,17 @@
-n = int(input("Digite um número:""))
-print("2")
-primo = 1
-prox_primo = 3
-while primo < n:
-   x = 3
-   while(x < prox_primo):
-      if prox_primo % x == 0:
+n = input("Digite um número:")
+n = int(n)
+contador = 0
+a = 2
+while contador != n:
+   b = 2
+   primo = True 
+   while b < a:
+      if a % b == 0 and a != b:
+         primo = False 
          break
-      x += 2
-   if x == prox_primo
-      print(x)
-      primo += 1
-   prox_primo += 2
+      b = b + 1 
+   if primo:
+      contador += 1
+      print(a)
+   a = a + 1
+
